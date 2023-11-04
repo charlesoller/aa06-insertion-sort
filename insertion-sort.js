@@ -1,22 +1,6 @@
 // Insertion Sort out-of-place
 // Do not modify the original array
 function insertionSort(arr) {
-
-//   const sortedArray = [];
-
-//   let copyArr = [...arr]
-
-//   for(currentEl of copyArr){
-//     console.log(sortedArray.join(','))
-//     let i = 0
-
-//     while(i < sortedArray.length && currentEl > sortedArray[i]){
-//       i++
-//     }
-//     sortedArray.splice(i, 0, currentEl)
-//   }
-//   return sortedArray
-// }
   /*
   Pseudocode:
 
@@ -44,29 +28,27 @@ function insertionSort(arr) {
     // console.log(sortedArr)
 
     let val = copyArr.pop();
-    sortedArr.push(null);
+    // sortedArr.push(null);
     // console.log(val)
 
-    if (sortedArr.length === 1) {
-      sortedArr[0] = val;
+    if (sortedArr.length === 0) {
+      sortedArr.push(val)
       // console.log('test',sortedArr)
     } else {
-      while() {
-        if (sortedArr[i - 1] < val) {
-          // console.log('test')
-          sortedArr[i] = val;
+      let i = sortedArr.length - 1;
+      while(i >= 0 && sortedArr[i] > val) {
+        sortedArr[i + 1] = sortedArr[i];
+       i--
+      }
+      sortedArr[i + 1] = val;
 
-          break;
-        } else {
-          [sortedArr[i - 1], sortedArr[i]] = [sortedArr[i], sortedArr[i - 1]];
-        }
       }
     }
+    // console.log('final sort',sortedArr)
+    return sortedArr;
   }
   // sortedArr.shift();
-  console.log('final sort',sortedArr)
-  return sortedArr;
-}
+
 
 // In-place Insertion Sort
 // Mutates the original array
