@@ -1,10 +1,27 @@
 // Insertion Sort out-of-place
 // Do not modify the original array
 function insertionSort(arr) {
+
+//   const sortedArray = [];
+
+//   let copyArr = [...arr]
+
+//   for(currentEl of copyArr){
+//     console.log(sortedArray.join(','))
+//     let i = 0
+
+//     while(i < sortedArray.length && currentEl > sortedArray[i]){
+//       i++
+//     }
+//     sortedArray.splice(i, 0, currentEl)
+//   }
+//   return sortedArray
+// }
   /*
   Pseudocode:
 
   Copy the original array
+
   Create an array to store the sorted values
   While the array is not empty:
   - make sure you have a console.log(sorted.join(',')) as your first line in the while loop
@@ -18,7 +35,37 @@ function insertionSort(arr) {
   Return the sorted array
   */
 
-  // Your code here 
+  // Your code here
+  let copyArr = [...arr];
+  let sortedArr = [];
+
+  while (copyArr.length) {
+    console.log(sortedArr.join(","));
+    // console.log(sortedArr)
+
+    let val = copyArr.pop();
+    sortedArr.push(null);
+    // console.log(val)
+
+    if (sortedArr.length === 1) {
+      sortedArr[0] = val;
+      // console.log('test',sortedArr)
+    } else {
+      while() {
+        if (sortedArr[i - 1] < val) {
+          // console.log('test')
+          sortedArr[i] = val;
+
+          break;
+        } else {
+          [sortedArr[i - 1], sortedArr[i]] = [sortedArr[i], sortedArr[i - 1]];
+        }
+      }
+    }
+  }
+  // sortedArr.shift();
+  console.log('final sort',sortedArr)
+  return sortedArr;
 }
 
 // In-place Insertion Sort
@@ -39,8 +86,7 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
-
-  // Your code here 
+  // Your code here
 }
 
 module.exports = [insertionSort, insertionSortInPlace];
